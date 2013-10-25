@@ -1,0 +1,37 @@
+﻿<common:LayoutAwarePage
+    x:Class="App4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:App4.Common"
+    mc:Ignorable="d">
+
+    <Grid Background="Green">
+        <Grid Margin="46,-112,34,112">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource PageHeaderTextStyle}" 
+                       Text="迷の宫" Margin="90,0,0,522" Grid.Row="1" FontSize="80" FontFamily="Global User Interface" />
+            <Grid HorizontalAlignment="Left" Height="100" Margin="528,268,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+            <Grid HorizontalAlignment="Left" Height="494" Margin="88,74,0,0" Grid.Row="2" VerticalAlignment="Top" Width="1122" Grid.Column="2">
+                <Grid HorizontalAlignment="Left" Height="200" Margin="42,75,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content=" New Game" Background="Black"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="200" Margin="586,75,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="      Help"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="200" Margin="42,294,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="     Record"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="200" Margin="586,294,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="  Exit Game"/>
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</common:LayoutAwarePage>

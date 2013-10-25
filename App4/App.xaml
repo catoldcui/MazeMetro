@@ -1,0 +1,19 @@
+﻿<Application
+    x:Class="App4.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Common/StandardStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+                    <x:String x:Key="AppName">迷の宫</x:String>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
+
+    </Application.Resources>
+</Application>
