@@ -8,29 +8,23 @@ namespace App4.Model
 {
     public sealed partial class MapData
     {
-        public static int width = 20;
-        public static int height = 10;
-        public int[] mapNumArr = new int[width * height];
-
+        public static int width = 1000;
+        public static int height = 500;
+        public static int column = width / GamePage.sizeOfBlock;
+        public static int row = height / GamePage.sizeOfBlock;
+        public int[][] mapNumArr;
+        MazeModel model;
         public MapData()
         {
-            SetMapNum();
-        }
-
-        private void SetMapNum()
-        {
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    mapNumArr[i * width + j] = 0;
-                }
-            }
+            int modelH = column / 2;
+            int modelR = row / 2;
+            model = new MazeModel(modelH, modelR);
+            model.setArray();
         }
 
         public int GetMapItemData(int i, int j)
         {
-            return mapNumArr[i * width + j];
+            return model.mapArray[i + 1][j + 1];
         }
     }
 }

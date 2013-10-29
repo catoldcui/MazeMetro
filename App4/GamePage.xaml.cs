@@ -25,6 +25,8 @@ namespace App4
     /// </summary>
     public sealed partial class GamePage : LayoutAwarePage
     {
+        public static int sizeOfBlock = 25;
+
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         
@@ -97,17 +99,31 @@ namespace App4
 
         public void initMap()
         {
-            for (int i = 0; i < MapData.height; i++)
+            for (int i = 0; i < MapData.row; i++)
             {
-                for (int j = 0; j < MapData.width; j++)
+                for (int j = 0; j < MapData.column; j++)
                 {
                     Image img = new Image();
-                    img.Source = new BitmapImage(new Uri("ms-appx:///Assets/50X50.png"));
-                    img.Width = 50;
-                    img.Height = 50;
+                    int type = mapData.GetMapItemData(i, j);
 
-                    Grid.SetColumn(img, j);
+                    if (type == 0)
+                    {
+                        img.Source = new BitmapImage(new Uri("ms-appx:///Assets/floor.png"));
+                    }
+                    else if(type == 1)
+                    {
+                        img.Source = new BitmapImage(new Uri("ms-appx:///Assets/wall.png"));
+                    }
+                    else if (type == -1)
+                    {
+
+                    }
+                    
+                    img.Width = GamePage.sizeOfBlock;
+                    img.Height = GamePage.sizeOfBlock;
+
                     Grid.SetRow(img, i);
+                    Grid.SetColumn(img, j);
 
                     mapGridView.Children.Add(img);
                 }
