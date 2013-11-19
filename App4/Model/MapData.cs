@@ -8,12 +8,11 @@ namespace App4.Model
 {
     public sealed partial class MapData
     {
-        public static int width = 1000;
-        public static int height = 500;
+        public static int width = 1025;
+        public static int height = 525;
         public static int column = width / GamePage.sizeOfBlock;
         public static int row = height / GamePage.sizeOfBlock;
-        public int[][] mapNumArr;
-        MazeModel model;
+        public MazeModel model;
         public MapData()
         {
             int modelH = column / 2;
@@ -24,7 +23,7 @@ namespace App4.Model
 
         public int GetMapItemData(int i, int j)
         {
-            return model.mapArray[i + 1][j + 1];
+            return model.mapArray[i][j];
         }
     }
 }

@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+using Windows.System;
 using App4.Model;
 
 // “基本页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234237 上有介绍
@@ -29,8 +31,11 @@ namespace App4
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        
+
         MapData mapData = new MapData();
+        PersonModel personModel;
+        Image personImg = new Image();
+        
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
         /// process lifetime management
@@ -40,7 +45,6 @@ namespace App4
             get { return this.navigationHelper; }
         }
 
-
         public GamePage()
         {
             this.InitializeComponent();
@@ -48,7 +52,17 @@ namespace App4
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
+            this.initPersonImg();
             this.initMap();
+        }
+
+        public void initPersonImg()
+        {
+            personModel = new PersonModel(ref mapData);
+
+            personImg.Width = GamePage.sizeOfBlock;
+            personImg.Height = GamePage.sizeOfBlock;
+            personImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/person.png"));
         }
 
         /// <summary>
@@ -116,7 +130,7 @@ namespace App4
                     }
                     else if (type == -1)
                     {
-
+                        img.Source = new BitmapImage(new Uri("ms-appx:///Assets/wall.png"));
                     }
                     
                     img.Width = GamePage.sizeOfBlock;
@@ -128,6 +142,108 @@ namespace App4
                     mapGridView.Children.Add(img);
                 }
             }
+            Image img1 = new Image();
+            img1.Source = new BitmapImage(new Uri("ms-appx:///Assets/door.png"));
+            img1.Width = GamePage.sizeOfBlock;
+            img1.Height = GamePage.sizeOfBlock;
+            Grid.SetRow(img1, MapData.row - 2);
+            Grid.SetColumn(img1, MapData.column - 2);
+            mapGridView.Children.Add(img1);
+
+            this.setPerson();
+        }
+
+        /// <summary>
+        /// 真实键盘事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("e.Key:" + e.Key);
+            doEvent(e.Key);
+        }
+
+        /// <summary>
+        /// 根据传进来的事件来进行操作人物
+        /// </summary>
+        /// <param name="d"></param>
+        public void doEvent(VirtualKey d) 
+        {
+            switch (d)
+            {
+                case VirtualKey.Up:
+                    personModel.toNextPos(Direction.UP);
+                    break;
+                case VirtualKey.Down:
+                    personModel.toNextPos(Direction.DOWN);
+                    break;
+                case VirtualKey.Right:
+                    personModel.toNextPos(Direction.RIGHT);
+                    break;
+                case VirtualKey.Left:
+                    personModel.toNextPos(Direction.LEFT);
+                    break;
+            }
+            this.setPerson();
+
+            if (this.personModel.isEnd())
+            {
+                this.showWinMessage();
+                this.newGame();
+            }
+        }
+
+        public async void showWinMessage()
+        {
+            MessageDialog inf = new MessageDialog("恭喜你！成功达到目的地！");
+            await inf.ShowAsync();
+        }
+
+        // start a new game
+        public void newGame()
+        {
+            mapGridView.Children.Clear();
+            mapData = new MapData();
+            initPersonImg();
+            this.initMap();
+        }
+
+        private void setPerson()
+        {
+            Position pos = personModel.curPos;
+            mapGridView.Children.Remove(personImg);
+            Grid.SetRow(personImg, pos.x);
+            Grid.SetColumn(personImg, pos.y);
+            mapGridView.Children.Add(personImg);
+        }
+
+        /// <summary>
+        /// 右下角四个button事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            VirtualKey v = VirtualKey.Up;
+            if (sender.Equals(UpBtn))
+            {
+                v = VirtualKey.Up;
+            }
+            else if (sender.Equals(DownBtn))
+            {
+                v = VirtualKey.Down;
+            }
+            else if (sender.Equals(leftBtn))
+            {
+                v = VirtualKey.Left;
+            }
+            else if (sender.Equals(RightBtn))
+            {
+                v = VirtualKey.Right;
+            }
+
+            doEvent(v);
         }
     }
 }

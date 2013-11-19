@@ -19,7 +19,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Background="Green">
+    <Grid Background="Green" KeyDown="Grid_KeyDown" >
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -45,8 +45,9 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-        <Grid Background="Black" x:Name="mapGridView" Margin="194,43,172,85" Width="1000" Height="500" Grid.Row="1">
+        <Grid Background="Black" x:Name="mapGridView" Margin="179,43,162,60" Width="1025" Height="525" Grid.Row="1">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="25" />
@@ -110,7 +111,40 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
             </Grid.RowDefinitions>
         </Grid>
+        <Button x:Name="leftBtn" Content="←" HorizontalAlignment="Left" Margin="1200,371,0,0" Grid.Row="1" VerticalAlignment="Top" Height="79" Width="80" Click="Button_Click" FontSize="36">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF1B4B04" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="UpBtn" Content="↑" HorizontalAlignment="Left" Margin="1238,294,0,0" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="81" Click="Button_Click" RenderTransformOrigin="0.481,-0.21" FontWeight="Bold" FontFamily="Segoe WP Black" FontSize="48">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF1B4B04" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="RightBtn" Content="→" HorizontalAlignment="Left" Margin="1279,371,0,0" Grid.Row="1" VerticalAlignment="Top" Height="79" Width="80" Click="Button_Click" FontSize="36">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF1B4B04" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DownBtn" Content="↓" HorizontalAlignment="Left" Margin="1238,449,0,0" Grid.Row="1" VerticalAlignment="Top" Height="85" Width="81" Click="Button_Click" FontSize="48">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF1B4B04" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </common:LayoutAwarePage>

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace App4.Model
 {
-    class MazeModel
+    public class MazeModel
     {
         private bool[] edges;
 
@@ -44,7 +44,7 @@ namespace App4.Model
                 mapArray[i][0] = -1;
             }
 
-            for (int j = 0; j < row; j++)
+            for (int j = 0; j < column; j++)
             {
                 mapArray[row - 1][j] = -1;
                 mapArray[0][j] = -1;
@@ -52,23 +52,38 @@ namespace App4.Model
         }
         private bool getEdgeValue(int edgeindex)
         {
-            try
-            {
-                return edges[edgeindex];
-            }
-            catch
+            if (edgeindex >= edges.Length || edgeindex < 0)
             {
                 return false;
             }
+            else
+            {
+                return edges[edgeindex];
+            }
+            //try
+            //{
+            //    return edges[edgeindex];
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
 
         private void setEdgeValue(int edgeindex, bool value)
         {
-            try
+            if (edgeindex >= edges.Length || edgeindex < 0)
+            {
+            }
+            else
             {
                 edges[edgeindex] = value;
             }
-            catch { }
+            //try
+            //{
+            //    edges[edgeindex] = value;
+            //}
+            //catch { }
         }
 
         private int nodeToEdgeIndex(int x, int y, int dir)

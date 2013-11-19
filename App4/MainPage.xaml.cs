@@ -33,5 +33,15 @@ namespace App4
         {
             this.Frame.Navigate(typeof(GamePage));
         }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(InfoPage));
+        }
     }
 }

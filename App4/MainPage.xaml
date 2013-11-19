@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="Green">
-        <Grid Margin="46,-112,34,112">
+        <Grid Margin="46,-112,34,112" x:Name="buttonGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="140" />
                 <RowDefinition Height="*" />
@@ -17,21 +17,22 @@
             <TextBlock Style="{StaticResource PageHeaderTextStyle}" 
                        Text="迷の宫" Margin="90,0,0,522" Grid.Row="1" FontSize="80" FontFamily="Global User Interface" />
             <Grid HorizontalAlignment="Left" Height="100" Margin="528,268,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-            <Grid HorizontalAlignment="Left" Height="494" Margin="88,74,0,0" Grid.Row="2" VerticalAlignment="Top" Width="1122" Grid.Column="2">
-                <Grid HorizontalAlignment="Left" Height="200" Margin="42,75,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
-                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content=" New Game" Background="Black"/>
+            <Grid HorizontalAlignment="Left" Height="494" Margin="88,74,0,0" Grid.Row="2" VerticalAlignment="Top" Width="1122" Grid.Column="2" Name="mainGrid">
+                <Grid HorizontalAlignment="Left" Height="163" Margin="81,120,0,0" VerticalAlignment="Top" Width="363" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="55" Margin="80,61,91,50" Width="192" FontSize="48" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" FontWeight="Bold" RenderTransformOrigin="0.498,0.167" Content="开始游戏" Background="Black" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" FontFamily="Arial Black"/>
                 </Grid>
-                <Grid HorizontalAlignment="Left" Height="200" Margin="586,75,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
-                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="      Help"/>
+                <Grid HorizontalAlignment="Left" Height="163" Margin="612,120,0,0" VerticalAlignment="Top" Width="363" Background="#FF18C537">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="182*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="172*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="56" Margin="77,56,65,41" Width="221" FontSize="48" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click1" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" RenderTransformOrigin="0.498,0.167"  Content="退出游戏" FontFamily="Buxton Sketch" Grid.ColumnSpan="3"/>
                 </Grid>
-                <Grid HorizontalAlignment="Left" Height="200" Margin="42,294,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
-                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="     Record"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="200" Margin="586,294,0,0" VerticalAlignment="Top" Width="478" Background="#FF18C537">
-                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="138" Margin="5,36,5,26" Width="468" FontSize="82" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click" Background="{ThemeResource HyperlinkForegroundThemeBrush}" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.498,0.167" Content="  Exit Game"/>
+                <Grid HorizontalAlignment="Left" Height="163" Margin="339,327,0,0" VerticalAlignment="Top" Width="363" Background="#FF18C537">
+                    <Button Style="{StaticResource TextPrimaryButtonStyle}" Height="55" Margin="80,61,91,50" Width="192" FontSize="48" HorizontalAlignment="Center" Foreground="#FFD3D9FD" BorderBrush="#FF4DD425" FontStretch="SemiCondensed" Click="Button_Click2" FontWeight="Bold" RenderTransformOrigin="0.498,0.167" Content="关于我们" Background="Black" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" FontFamily="Arial Black"/>
                 </Grid>
             </Grid>
-
         </Grid>
     </Grid>
 </common:LayoutAwarePage>
