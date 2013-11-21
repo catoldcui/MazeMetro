@@ -355,10 +355,13 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
+    <MainPackageIdentityName>49753eos.Diamondgirl</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.DIAOS</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.JoinNBA</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.NBATEAM</MainPackageIdentityName>
+    <MainPackageIdentityName>49753eos.NortheasterncuisineofChina</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.sex-trap</MainPackageIdentityName>
+    <MainPackageIdentityName>49753eos.storyoflol-female</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.Sushipractice</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.YUGIONCard</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.8714C0C2386F</MainPackageIdentityName>
@@ -367,6 +370,7 @@
     <MainPackageIdentityName>49753eos.48022A58B284C</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.7041CEE583BC</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.131947EE8899</MainPackageIdentityName>
+    <MainPackageIdentityName>49753eos.404654264D1B</MainPackageIdentityName>
     <MainPackageIdentityName>49753eos.7362ADD080E7</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/4fc7d19e-ae3d-454b-b472-40ac5c4d0579" />

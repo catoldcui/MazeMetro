@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="49753eos.30692A1FA94AC" Publisher="CN=9C9165E1-C302-4CAB-8807-A4F7FA945BD1" Version="1.1.0.1" />
+  <Identity Name="49753eos.30692A1FA94AC" Publisher="CN=9C9165E1-C302-4CAB-8807-A4F7FA945BD1" Version="1.1.0.6" />
   <Properties>
     <DisplayName>迷宫无限版</DisplayName>
     <PublisherDisplayName>童心eos</PublisherDisplayName>
@@ -20,7 +20,4 @@
       </m2:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
 </Package>

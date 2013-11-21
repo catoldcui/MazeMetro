@@ -28,6 +28,7 @@ namespace App4
     public sealed partial class GamePage : LayoutAwarePage
     {
         public static int sizeOfBlock = 25;
+        public static int distance = 9;
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -113,10 +114,19 @@ namespace App4
 
         public void initMap()
         {
+            this.mapGridView.Children.Clear();
+            int x = personModel.curPos.x;
+            int y = personModel.curPos.y;
+
             for (int i = 0; i < MapData.row; i++)
             {
                 for (int j = 0; j < MapData.column; j++)
                 {
+                    double curDistance = Math.Pow(Math.Pow(x - i, 2) + Math.Pow(y - j, 2), 0.5);
+                    if (curDistance > distance)
+                    {
+                        continue;
+                    }
                     Image img = new Image();
                     int type = mapData.GetMapItemData(i, j);
 
@@ -170,39 +180,54 @@ namespace App4
         /// <param name="d"></param>
         public void doEvent(VirtualKey d) 
         {
+            bool result = false;
             switch (d)
             {
                 case VirtualKey.Up:
-                    personModel.toNextPos(Direction.UP);
+                    result = personModel.toNextPos(Direction.UP);
                     break;
                 case VirtualKey.Down:
-                    personModel.toNextPos(Direction.DOWN);
+                    result = personModel.toNextPos(Direction.DOWN);
                     break;
                 case VirtualKey.Right:
-                    personModel.toNextPos(Direction.RIGHT);
+                    result = personModel.toNextPos(Direction.RIGHT);
                     break;
                 case VirtualKey.Left:
-                    personModel.toNextPos(Direction.LEFT);
+                    result = personModel.toNextPos(Direction.LEFT);
                     break;
             }
-            this.setPerson();
 
-            if (this.personModel.isEnd())
+            if (result)
             {
-                this.showWinMessage();
-                this.newGame();
+                this.initMap();
+
+                if (this.personModel.isEnd())
+                {
+                    distance--;
+                    if (distance == 1)
+                    {
+                        this.showWinMessage("恭喜你！成功完成一轮游戏！请重新开始！");
+                        distance = 9;
+                    }
+                    else
+                    {
+                        this.showWinMessage("恭喜你！成功达到目的地！");
+                    }
+                    this.newGame();
+                }
             }
         }
 
-        public async void showWinMessage()
+        public async void showWinMessage(String mes)
         {
-            MessageDialog inf = new MessageDialog("恭喜你！成功达到目的地！");
+            MessageDialog inf = new MessageDialog(mes);
             await inf.ShowAsync();
         }
 
         // start a new game
         public void newGame()
         {
+            distance--;
             mapGridView.Children.Clear();
             mapData = new MapData();
             initPersonImg();
