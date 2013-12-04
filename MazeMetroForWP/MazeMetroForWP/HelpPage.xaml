@@ -1,0 +1,112 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="MazeMetroForWP.HelpPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Landscape"
+    mc:Ignorable="d">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Green">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="迷宫" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="帮助页面" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Margin="42,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="562" Width="367">
+            	<Run Text="游戏简介：这是一款简单的迷宫游戏。"/>
+            	<LineBreak/>
+            	<Run Text="游戏的目的是控制角色到达右下角的终点。"/>
+            	<LineBreak/>
+            	<Run Text="游戏分为7个关卡"/>
+            	<LineBreak/>
+            	<Run Text="每关可显示的距离大小如下:"/>
+            	<LineBreak/>
+            	<Run Text="关卡&#x9;距离"/>
+            	<LineBreak/>
+            	<Run Text="   1"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="9"/>
+            	<LineBreak/>
+            	<Run Text="   "/>
+            	<Run Text="2"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="8"/>
+            	<LineBreak/>
+            	<Run Text="   3"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="7"/>
+            	<LineBreak/>
+            	<Run Text="   4"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="6"/>
+            	<LineBreak/>
+            	<Run Text="   5"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="5"/>
+            	<LineBreak/>
+            	<Run Text="   6"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="4"/>
+            	<LineBreak/>
+            	<Run Text="   7"/>
+            	<Run Text=" "/>
+            	<Run Text="&#x9;&#x9;"/>
+            	<Run Text=" "/>
+            	<Run Text="3"/>
+            	<LineBreak/>
+            	<Run/>
+            	<LineBreak/>
+            	<Run Text="控制方式"/>
+            	<Run Text="在游戏界面的右下角有四个按钮，分别是上下左右。用此来控制角色的移动。"/>
+            	<Run/>
+            	<LineBreak/>
+            	<Run/>
+            	<LineBreak/>
+            	<Run Text="版本号:V1.1.0"/>
+            	<LineBreak/>
+            	<Run Text="制作:Catold.晖"/>
+            	<LineBreak/>
+            	<Run Text="邮箱:catoldcui@gmail.com"/>
+            	<LineBreak/>
+            	<Run/>
+            	<LineBreak/>
+            	<Run/>
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
